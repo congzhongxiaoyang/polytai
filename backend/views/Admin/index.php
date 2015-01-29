@@ -52,16 +52,33 @@
 				<div class="text">
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=admin/goods_add" class="pos">添加商品</a>				        	
+				        	<a href="index.php?r=goods/goods_add" class="pos">添加商品</a>				        	
 				        </li> 
 				    </ul>  
 
 				    <ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=admin/goods_list" class="pos">查看商品</a>    	
+				        	<a href="index.php?r=goods/goods_list" class="pos">查看商品</a>    	
 				        </li> 
 				    </ul> 
 					
+				</div>
+			</div>
+
+			<div class="menu_box">
+				<h2>分类管理</h2>
+				<div class="text">
+				    <ul class="con">
+				        <li class="nav_u">
+				        	<a href="index.php?r=admin/category_add" class="pos">添加分类</a>				        	
+				        </li> 
+				    </ul> 
+
+					<ul class="con">
+				        <li class="nav_u">
+				        	<a href="index.php?r=admin/category_list" class="pos">分类列表</a>    	
+				        </li> 
+				    </ul>
 				</div>
 			</div>
 

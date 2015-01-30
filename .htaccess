@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule backend/web/index.html$ backend/web/index.php?r=admin/index
+RewriteRule backend/web/login.html$ backend/web/index.php?r=admin/login
+RewriteRule frontend/web/protype.html$ frontend/web/index.php?r=shop/protype

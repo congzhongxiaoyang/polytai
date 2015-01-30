@@ -14,6 +14,7 @@ use Yii;
  * @property integer $goods_num
  * @property string $market_price
  * @property string $goods_price
+ * @property string $goods_sn
  */
 class EcsOrderDetail extends \yii\db\ActiveRecord
 {
@@ -33,7 +34,7 @@ class EcsOrderDetail extends \yii\db\ActiveRecord
         return [
             [['order_id', 'goods_id', 'goods_num'], 'integer'],
             [['market_price', 'goods_price'], 'number'],
-            [['goods_name'], 'string', 'max' => 255]
+            [['goods_name', 'goods_sn'], 'string', 'max' => 255]
         ];
     }
 
@@ -50,6 +51,7 @@ class EcsOrderDetail extends \yii\db\ActiveRecord
             'goods_num' => 'Goods Num',
             'market_price' => 'Market Price',
             'goods_price' => 'Goods Price',
+            'goods_sn' => 'Goods Sn',
         ];
     }
 }

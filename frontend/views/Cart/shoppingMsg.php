@@ -72,15 +72,16 @@
               </div>
               <div class="shopping_panel">
               	<div class="title">收货人信息<a href="javascript:void(0);">保存收货人信息</a></div>
-                <form class="newAddress">
+                <form class="newAddress" method="post" action="index.php?r=cart/recieve">
                 	<div class="title"><input type="radio" />使用新地址</div>
                     <div class="frmItem">
                     	<label class="lbl"><span class="redSpan2">*</span>收货人：</label>
-                        <input class="txt" type="text" />
+                        <input class="txt" type="text" name="recieve" />
                     </div>
+					<input type="hidden" name="aid" value="<?php echo $id;?>">
                     <div class="frmItem">
                     	<label class="lbl"><span class="redSpan2">*</span>所在地区：</label>
-                         <select name="province" id="pro" onchange="select('pro','city')">
+                         <select name="pro" id="pro" onchange="select('pro','city')">
 						<?php foreach($region as $k=>$v){?>
 							<option value=''>请选择</option>
 							<option value="<?php echo $v['region_id'];?>"><?php echo $v['region_name'];?></option>
@@ -88,36 +89,31 @@
 							}
 							?>
                         </select>
-                        <select name="province" id="city" >
-						<?php  ?>
+                        <select name="city" id="city" onchange="select('city','dis')" >
 							<option>请选择</option>
-							<option><?php echo $v['region_name'];?></option>
-						<?php
-							
-						?>
                         </select>
-                        <select id='dis'>
+                        <select name="dis" id="dis">
                         	<option>请选择</option>
                         </select>
                     </div>
                     <div class="frmItem">
                     	<label class="lbl"><span class="redSpan2">*</span>详细地址：</label>
-                        <input class="txt width290" type="text" />
+                        <input class="txt width290" type="text" name="detail" />
                     </div>
                     <div class="frmItem">
                     	<label class="lbl"><span class="redSpan2">*</span>手机号码：</label>
-                        <input class="txt" type="text" />
+                        <input class="txt" type="text" name="mobile" />
                         <span>或</span>
                         <label class="lbl">固定电话：</label>
-                        <input class="txt" type="text" />
+                        <input class="txt" type="text" name="tel" />
                     </div>
                     <div class="frmItem">
                     	<label class="lbl">邮箱：</label>
-                        <input class="txt" type="text" />
+                        <input class="txt" type="text" name="email" />
                         <label>用来接受订单提醒邮件，便于您及时了解订单详情</label>
                     </div>
                     <div class="btnWrapper">
-                    	<a class="btn" href="javascript:void(0);">保存收货人地址</a>
+                    	<a class="btn" href="javascript:void(0);"><input type="submit" value="保存收货人地址"></a>
                     </div>
                 </form>
                 <div class="menuList">
@@ -133,108 +129,25 @@
                             <td>数量</td>
                             <td>库存状态</td>
                         </tr>
+						<?php foreach($qingdan as $k=>$v){?>
                         <tr>
                         	<td>
                             	<div class="clearfix">
-                                	<div class="imgWrap"></div>
+                                	<div class="imgWrap"><img src="<?php echo $v['goods_thumb'];?>"/></div>
                                     <div class="menu_msg">
                                     	<p class="proName">
-                                        	<a class="redSpan" href="javascript:void(0);">鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联</a>
+                                        	<a class="redSpan" href="javascript:void(0);"><?php echo $v['goods_name'];?></a>
                                         </p>
-                                        <p>商品编号：<span>1013592610</span></p>
+                                        <p>商品编号：<span><?php echo $v['goods_sn'];?></span></p>
                                     </div>
                                 </div>
                             </td>
-                            <td><span>￥200.00</span></td>
-                            <td><span></span></td>
-                            <td><span>*1</span></td>
+                            <td><span>￥<?php echo $v['goods_price'];?></span></td>
+                            <td><span>￥<?php echo ($v['market_price']-$v['goods_price']);?></span></td>
+                            <td><span><?php echo $v['goods_num'];?></span></td>
                             <td><span>有货</span></td>
                         </tr>
-                        <tr>
-                        	<td>
-                            	<div class="clearfix">
-                                	<div class="imgWrap"></div>
-                                    <div class="menu_msg">
-                                    	<p class="proName">
-                                        	<a class="redSpan" href="javascript:void(0);">鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联</a>
-                                        </p>
-                                        <p>商品编号：<span>1013592610</span></p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span>￥200.00</span></td>
-                            <td><span></span></td>
-                            <td><span>*1</span></td>
-                            <td><span>有货</span></td>
-                        </tr>
-                        <tr>
-                        	<td>
-                            	<div class="clearfix">
-                                	<div class="imgWrap"></div>
-                                    <div class="menu_msg">
-                                    	<p class="proName">
-                                        	<a class="redSpan" href="javascript:void(0);">鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联</a>
-                                        </p>
-                                        <p>商品编号：<span>1013592610</span></p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span>￥200.00</span></td>
-                            <td><span></span></td>
-                            <td><span>*1</span></td>
-                            <td><span>有货</span></td>
-                        </tr>
-                        <tr>
-                        	<td>
-                            	<div class="clearfix">
-                                	<div class="imgWrap"></div>
-                                    <div class="menu_msg">
-                                    	<p class="proName">
-                                        	<a class="redSpan" href="javascript:void(0);">鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联</a>
-                                        </p>
-                                        <p>商品编号：<span>1013592610</span></p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span>￥200.00</span></td>
-                            <td><span></span></td>
-                            <td><span>*1</span></td>
-                            <td><span>有货</span></td>
-                        </tr>
-                        <tr>
-                        	<td>
-                            	<div class="clearfix">
-                                	<div class="imgWrap"></div>
-                                    <div class="menu_msg">
-                                    	<p class="proName">
-                                        	<a class="redSpan" href="javascript:void(0);">鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联</a>
-                                        </p>
-                                        <p>商品编号：<span>1013592610</span></p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span>￥200.00</span></td>
-                            <td><span></span></td>
-                            <td><span>*1</span></td>
-                            <td><span>有货</span></td>
-                        </tr>
-                        <tr>
-                        	<td>
-                            	<div class="clearfix">
-                                	<div class="imgWrap"></div>
-                                    <div class="menu_msg">
-                                    	<p class="proName">
-                                        	<a class="redSpan" href="javascript:void(0);">鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联鑫泰亿联</a>
-                                        </p>
-                                        <p>商品编号：<span>1013592610</span></p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td><span>￥200.00</span></td>
-                            <td><span></span></td>
-                            <td><span>*1</span></td>
-                            <td><span>有货</span></td>
-                        </tr>
+                       <?php } ?>
                     </table>
                     <div class="btnWrapper">
                     	<a href="javascript:void(0);">立即提交</a>
@@ -299,7 +212,7 @@
 	//地区四级联动
 	function select(myid,cid)
 	{
-		
+		//alert(cid);
 		var pid=$('#'+myid).val();
 		//alert(pid);
 		$.ajax({
@@ -308,14 +221,7 @@
 		data:{'pid':pid},
 		success:function (e)
 			{
-				//alert(e);
-				for(i in e){
-					var aa=e[i].split();
-					alert(aa);
-					
-				}
-				//$('#'+cid).html(e);
-				
+				$('#'+cid).html(e);
 			}
 		});
 

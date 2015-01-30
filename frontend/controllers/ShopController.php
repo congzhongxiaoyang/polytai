@@ -81,6 +81,7 @@ class ShopController extends Controller
 		$model->price=$_POST['shop_price'];
 		$model->market_price=$_POST['market_price'];
 		$model->number=$_POST['goods_num'];
+		$model->goods_sn=$_POST['goods_sn'];
 		$model->user_id=1;
 		//print_r($_POST);die;
 		$data=Cart::find()->where("goods_id=".$gid."")->one();

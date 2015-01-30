@@ -105,15 +105,8 @@ class CartController extends Controller
 		$order->goods_amount=$_POST['total_price'];
 		$x=$order->insert();
 		$id=Yii::$app->db->getLastInsertID();//刚加入信息的id
-		//添加收货地址
-		$uid=1;
-		$address=EcsUserAddress::find()->where("user_id=$uid")->one();
-		foreach($address as $k=>$v){
-		if($k!='address_id'&&$k!='address_name'&&$k!='user_id'){
-			$add=new EcsUserAddress();
-			$y=$order->updateall([$k=>$v],['order_id'=>$id]);
-			}
-		}
+		
+		
 		//加入订单详细表
 		$a=Cart::find()->all();
 		foreach($a as $k=>$v){
@@ -124,6 +117,7 @@ class CartController extends Controller
 			$detail->goods_num=$v['number'];
 			$detail->market_price=$v['market_price'];
 			$detail->goods_price=$v['price'];
+			$detail->goods_sn=$v['goods_sn'];
 			$z=$detail->insert();
 
 			//修改库存
@@ -132,28 +126,54 @@ class CartController extends Controller
 			$num=$data['goods_number']-$v['number'];
 			$q=$goods->updateall(['goods_number'=>$num],['goods_id'=>$v['goods_id']]);
 		}
-		if($x&&$y&&$z&&$q){
-			echo "<script>alert</script>";
-		}
+		
+		return $this->actionShoppingmsg($id);
 	}
 	//核对订单
-	public function actionShoppingmsg(){
+	public function actionShoppingmsg($id){
 		$region=EcsRegion::find()->where('parent_id=0')->all();
-		//print_r($region);die;
-
-		return $this->renderPartial('shoppingMsg',['region'=>$region]);
+		$query=new Query();
+		$qingdan=$query->from('ecs_goods,ecs_order_detail')->where("ecs_goods.goods_id=ecs_order_detail.goods_id and ecs_order_detail.order_id=$id")->all();
+		//$qingdan=EcsOrderDetail::find()->where("order_id=$id")->all();
+		return $this->renderPartial('shoppingMsg',['region'=>$region,'qingdan'=>$qingdan,'id'=>$id]);
 	}
 	//地区四级联动
-	function actionSelectadd()
+	public function actionSelectadd()
 	{
 		$pid=$_POST['pid'];
 		$info=EcsRegion::find()->where("parent_id=$pid")->all();
-		//print_r($info);
-		echo json_encode($info);
-		//foreach($info as $k=>$v){
-			//print_r($v);
-		//}
-		//return $this->renderPartial('shoppingMsg',['info'=>$info]);
+		return $this->renderPartial('region',['info'=>$info]);
+	}
+	//新增收货地址
+	public function actionRecieve(){
+		$uid=1;
+		$id=$_POST['aid'];
+		//print_r($_POST);die;
+		$model=new EcsUserAddress();
+		$model->user_id=$uid;
+		$model->consignee=$_POST['recieve'];
+		$model->country=$_POST['pro'];
+		$model->province=$_POST['city'];
+		$model->city=$_POST['dis'];
+		$model->address=$_POST['detail'];
+		$model->mobile=$_POST['mobile'];
+		$model->tel=$_POST['tel'];
+		$model->email=$_POST['email'];
+		$model->flag=1;
+		
+		$connection = \Yii::$app->db;
+		$connection->createCommand()->update('ecs_user_address', ['flag' => 0], "user_id=$uid and flag=1")->execute();
+		$model->insert();
+		
+
+		//添加收货地址
+		$address=EcsUserAddress::find()->where("user_id=$uid and flag=1")->all();
+		foreach($address as $k=>$v){
+		if($k!='address_id'&&$k!='address_name'&&$k!='user_id'&&$k!='flag'){
+			$order=new EcsOrderInfo();
+			$y=$order->updateall([$k=>$v],['order_id'=>$id]);
+			}
+		}
 	}
 
 

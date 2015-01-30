@@ -213,6 +213,7 @@
                                     </div>
                                 </div>
 								<input type="hidden" name="shop_price" value="<?php echo $data['shop_price'];?>">
+								
 								<?php
 								}
 								?>
@@ -227,12 +228,12 @@
                                     <input class="txt" type="text" id='num' value="1" />
                                     <a  onclick="plus()">+</a>
                                 </div>
-<input type="hidden" name="goods_id" id='gid' value="<?php echo $data['goods_id'];?>">
+			<input type="hidden" name="goods_id" id='gid' value="<?php echo $data['goods_id'];?>">
 								<input type="hidden" name="goods_name" value="<?php echo $data['goods_name'];?>">
 								
 								<input type="hidden" name="market_price" value="<?php echo $data['market_price'];?>">
 								<input type="hidden" name="goods_num" id="goods_num" value="">
-
+								<input type="hidden" name="goods_sn" value="<?php echo $data['goods_sn'];?>">
                                 <div>
                                 	<a class="buyBtn" ><span class="carIcon"></span><input type="submit" value="加入购物车"></a>
                                 </div>

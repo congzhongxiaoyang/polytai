@@ -14,6 +14,7 @@ use Yii;
  * @property integer $number
  * @property integer $user_id
  * @property integer $goods_id
+ * @property string $goods_sn
  */
 class Cart extends \yii\db\ActiveRecord
 {
@@ -33,7 +34,8 @@ class Cart extends \yii\db\ActiveRecord
         return [
             [['price', 'market_price'], 'number'],
             [['number', 'user_id', 'goods_id'], 'integer'],
-            [['goods_name'], 'string', 'max' => 50]
+            [['goods_name'], 'string', 'max' => 50],
+            [['goods_sn'], 'string', 'max' => 255]
         ];
     }
 
@@ -50,6 +52,7 @@ class Cart extends \yii\db\ActiveRecord
             'number' => 'Number',
             'user_id' => 'User ID',
             'goods_id' => 'Goods ID',
+            'goods_sn' => 'Goods Sn',
         ];
     }
 }

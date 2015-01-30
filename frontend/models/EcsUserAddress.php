@@ -22,6 +22,7 @@ use Yii;
  * @property string $mobile
  * @property string $sign_building
  * @property string $best_time
+ * @property integer $flag
  */
 class EcsUserAddress extends \yii\db\ActiveRecord
 {
@@ -39,7 +40,8 @@ class EcsUserAddress extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'country', 'province', 'city', 'district'], 'integer'],
+            [['user_id', 'country', 'province', 'city', 'district', 'flag'], 'integer'],
+            [['flag'], 'required'],
             [['address_name'], 'string', 'max' => 50],
             [['consignee', 'email', 'zipcode', 'tel', 'mobile'], 'string', 'max' => 60],
             [['address', 'sign_building', 'best_time'], 'string', 'max' => 120]
@@ -67,6 +69,7 @@ class EcsUserAddress extends \yii\db\ActiveRecord
             'mobile' => 'Mobile',
             'sign_building' => 'Sign Building',
             'best_time' => 'Best Time',
+            'flag' => 'Flag',
         ];
     }
 }

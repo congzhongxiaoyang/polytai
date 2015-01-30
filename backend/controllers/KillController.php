@@ -29,6 +29,7 @@ class KillController extends Controller
 		$model->k_name=$data['goods_name'];
 		$model->g_price=$b;
 		$model->k_img=$data['goods_img'];
+		$model->k_number=$data['goods_number'];
 		$model->k_price=$_POST['k_price'];
 		$model->k_times=$_POST['k_times'];
 		$model->k_timed=$_POST['k_timed'];

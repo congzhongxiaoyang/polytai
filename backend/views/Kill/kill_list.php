@@ -27,6 +27,7 @@ use yii\widgets\LinkPager;
 			<th>秒杀价格</th>
 			<th>起始时间</th>
 			<th>截止时间</th>
+			<th>库存</th>
 			<th>操作</th>
 		</tr>
 		<?php foreach($data as $k=>$v){?>
@@ -38,6 +39,7 @@ use yii\widgets\LinkPager;
 			<td><?php echo $v['k_price'];?></td>
 			<td><?php echo $v['k_times'];?></td>
 			<td><?php echo $v['k_timed'];?></td>
+			<td><?php echo $v['k_number'];?></td>
 			<td><a href="index.php?r=kill/kill_edit&id=<?php echo $v['k_id'];?>"><input type="button" value="[修改]"></a> || <a href="index.php?r=kill/kill_del&id=<?php echo $v['k_id'];?>"><input type="button" value="[取消]"></a></td>
 		</tr>
 		<?php }?>

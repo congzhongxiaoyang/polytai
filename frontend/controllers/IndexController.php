@@ -14,11 +14,12 @@ use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use yii\db\Query;//数据库类
 use yii\web\session;
-use common\models\EcsAdminUser;
+use app\models\EcsAdminUser;
 
 /**
  * Site controller
  */
+ header("content-type:text/html;charset=utf-8");
 class IndexController extends Controller
 {
 	 public $enableCsrfValidation = false;
@@ -70,19 +71,17 @@ class IndexController extends Controller
 		//$session=new session();
 			
 		$name="123123";
-		$pwd="123123";
-		/**/$model=new EcsAdminUser();
+		$pwd=md5("123123");
+		$model=new EcsAdminUser();
 		$model->user_name=$name;
 		$model->password=$pwd;
 		$data=$model->insert();
 		
 		if($data){
-			echo 1;
 			echo "<script>alert('注册成功');location.href='index.php?r=index/login'</script>";
 			
     
 		}else{
-			echo 2;
 			echo "<script>alert('注册失败');location.href='index.php?r=index/register'</script>";
 			  
 		}

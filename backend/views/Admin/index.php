@@ -104,12 +104,12 @@
 				<div class="text">
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=admin/miaosha_add" class="pos">添加秒杀</a>				        	
+				        	<a href="index.php?r=kill/kill_add" class="pos">添加秒杀</a>				        	
 				        </li> 
 				    </ul>
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=admin/miaosha_list" class="pos">秒杀列表</a>				        	
+				        	<a href="index.php?r=kill/kill_list" class="pos">秒杀列表</a>				        	
 				        </li> 
 				    </ul>
 				

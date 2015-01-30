@@ -13,9 +13,10 @@
 			<input type="text" id="userName" name="userName"/>
 			<input type="password" id="psd" name="psd"/>
 			<input type="" value="" id="verify" name="verify"/>
-			<input type="submit" id="sub" value=""/>
+			<input type="button" id="sub" value="" onclick="login()"/>
 			<!-- 验证码 -->
-			<img src="" id="verify_img" />
+			<img src="index.php?r=login/captcha" id="verify_img" width=100 height=30/>
+
 		</form>
 		<div class="four_bj">
 			
@@ -35,11 +36,34 @@
 			
 		</ul>
 	</div>
-<!--[if IE 6]>
-    <script type="text/javascript" src="./Js/iepng.js"></script>
-    <script type="text/javascript">
-        DD_belatedPNG.fix('form','background');
-    </script>
-<![endif]-->
+	<script type="text/javascript">
+	<!--
+		function login(){
+			var name=$("#userName").val();
+			var pwd=$("#psd").val();
+			//var verify=$("#verify").val();
+			$.ajax({
+				   type: "GET",
+				   url: "index.php?r=login/loginpro",
+				   data: {"name":name,"pwd":pwd},
+				   success: function(msg){
+					   //alert(msg);
+
+					   if(msg==0){
+							alert("用户名错误");
+					   }
+					   if(msg==1){
+							alert("密码错误");
+					   }
+					   if(msg==2){
+							location.href="index.php?r=admin/index";
+					   }
+				   }
+			});
+		}
+
+	//-->
+	</script>
+
 </body>
 </html>

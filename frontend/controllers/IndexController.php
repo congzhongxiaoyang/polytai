@@ -3,18 +3,18 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
+
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+<<<<<<< HEAD
 use yii\db\Query;//数据库类
 use yii\web\session;
 use app\models\EcsAdminUser;
+=======
+>>>>>>> 3f734673b23ce795ecb6b202bf4af1e32818a968
 
 /**
  * Site controller
@@ -22,6 +22,7 @@ use app\models\EcsAdminUser;
  header("content-type:text/html;charset=utf-8");
 class IndexController extends Controller
 {
+<<<<<<< HEAD
 	 public $enableCsrfValidation = false;
 	//首页
 	public function actionIndex(){
@@ -86,27 +87,9 @@ class IndexController extends Controller
 			  
 		}
 	}
+=======
+>>>>>>> 3f734673b23ce795ecb6b202bf4af1e32818a968
 	
-	//验证码
-	 function actions(){
-        $yzm="".substr(md5(time()),5,4);
-        //$_SESSION['captcha']="".substr(md5(time()),5,4);
-        $session=new Session();
-        $session->set('captcha',$yzm);
-        //$_SESSION['captcha']=$yzm;
-		//$a=$session->get('captcha');
-			
-        //$yzm='1234'.$a;
-		//echo $yzm;die;
-        return [
-					'captcha' => [
-                    'class' => 'yii\captcha\CaptchaAction',
-                    'fixedVerifyCode' => YII_ENV_TEST ? 'testme' :$yzm,
-                ],
-        ];
-    }
+
 
 }
-
-
-

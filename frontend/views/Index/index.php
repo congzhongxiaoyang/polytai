@@ -14,9 +14,13 @@
 	<div class="headerWrapper">
     	<div class="header">
         	<!--顶部登录信息-->
-        	<?php
-				include('head.php');
-			?>
+        	<div class="site_wrap">
+            	<div class="site_con">
+                	<span>您好，欢迎来到锡盟鑫泰！</span>
+                    <a href="javascript:void(0);">【登录】</a>
+                    <a href="javascript:void(0);">【免费注册】</a>
+                </div>
+            </div>
             <!--顶部登录信息END-->
             <div class="site_title clearfix">
             	<div class="notice_wrap">
@@ -64,7 +68,7 @@
             	<div class="title">
                 	<span class="titleIcon"></span>
                     <ul class="clearfix">
-                    	<li class="current"><a href="index.php?r=kill/kill_list">限时秒杀</a>|</li>
+                    	<li class="current"><a href="javascript:void(0);">限时秒杀</a>|</li>
                         <li><a href="javascript:void(0);">人气单品</a>|</li>
                         <li><a href="javascript:void(0);">镇店之宝</a>|</li>
                         <li><a href="javascript:void(0);">付邮试用</a></li>

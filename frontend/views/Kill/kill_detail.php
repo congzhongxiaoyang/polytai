@@ -131,8 +131,9 @@ if ($endtime>=$nowtime){
 $lefttime = $endtime-$nowtime; //实际剩下的时间（秒）
  }else{
 	 $lefttime=0;
+	 $id=$data['k_id'];
 	 die('<div>
-                                	<a class="buyBtn" href="index.php?r=kill/kill"><span class="carIcon"></span>立即秒杀</a>
+                                	<a class="buyBtn" href="index.php?r=kill/kill&id='"$id"'"><span class="carIcon"></span>立即秒杀</a>
                                 </div>
 								');
 }							

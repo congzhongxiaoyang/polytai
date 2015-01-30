@@ -25,6 +25,7 @@ class IndexController extends Controller
 	 public $enableCsrfValidation = false;
 	//首页
 	public function actionIndex(){
+		//print_r();
 		return $this->renderPartial('index');
 	}
 	//用户注册

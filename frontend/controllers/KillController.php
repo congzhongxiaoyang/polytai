@@ -30,8 +30,11 @@ class KillController extends Controller
         return $this->renderPartial('kill_list',['data'=>$data]);
 	}
 	public function actionKill(){
-		$data=EcsGoodsKill::find()->all();
-        return $this->renderPartial('kill_list',['data'=>$data]);
+		$memcache_obj = new \Memcache;
+		$memcache_obj->connect('192.168.1.198', 22201);
+		$memcache_obj->set('shop',"$u_id:$g_id",0,0);//入栈
+		//echo $memcache_obj->get('asd');      //出栈
+	
 	}
 
 }

@@ -10,6 +10,12 @@ use yii\filters\VerbFilter;
 class AdminController extends Controller
 {
 
+
+	//后台注册
+	public function actionRegist(){
+		return $this->renderPartial('regist');
+	}
+
 	//后台登陆
     public function actionLogin(){
         return $this->renderPartial('login');

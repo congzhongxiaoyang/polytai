@@ -1,3 +1,6 @@
+<?php
+use yii\grid\GridView;
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
@@ -18,19 +21,21 @@
 			<th>状态</th>
 			<th>操作</th>
 		</tr>
+		<?php foreach($model as $key=>$val){?>
 		<tr>
-			<td>1</td>
-			<td><a href="">分类</a></td>
-			<td>开启</td>
+			<td><?php echo $val['order_id']; ?></td>
+			<td><a href=""><?php echo $val['order_id']; ?></a></td>
+			<td><?php echo $val['order_id']; ?></td>
 			<td>
 				<a href="">[关闭]</a>
 				<a href="">[编辑]</a>
 				<a href="" class="del">[删除]</a>
 			</td>
 		</tr>
+		<?php } ?>
 	</table>
 		<div class="page">
-			<a href="">1</a>
+			<?= LinkPager::widget(['pagination' => $pages]); ?>
 		</div>
 </body>
 </html>

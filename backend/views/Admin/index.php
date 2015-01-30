@@ -87,13 +87,13 @@
 				<div class="text">
 				    <ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=admin/order_list" class="pos">订单列表</a>				        	
+				        	<a href="index.php?r=order/order_list" class="pos">订单列表</a>				        	
 				        </li> 
 				    </ul> 
 
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=admin/goods_comment" class="pos">评论列表</a>    	
+				        	<a href="index.php?r=order/goods_comment" class="pos">评论列表</a>    	
 				        </li> 
 				    </ul>
 				</div>
@@ -104,12 +104,12 @@
 				<div class="text">
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=kill/kill_add" class="pos">添加秒杀</a>				        	
+				        	<a href="index.php?r=admin/miaosha_add" class="pos">添加秒杀</a>				        	
 				        </li> 
 				    </ul>
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=kill/kill_list" class="pos">秒杀列表</a>				        	
+				        	<a href="index.php?r=admin/miaosha_list" class="pos">秒杀列表</a>				        	
 				        </li> 
 				    </ul>
 				

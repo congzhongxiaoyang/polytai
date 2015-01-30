@@ -53,8 +53,8 @@ use yii\widgets\LinkPager;
 				<?php }?>
 			</td>
 			<td>
-				<a href="">[详情]</a>
-				<a href="">[编辑]</a>
+				<a href="www.polytai.com/backend/web/index.php?r=shop/mall&gid=<?php echo $val['goods_id'];?>">[详情]</a>
+				<a href="index.php?r=goods/goods_edit&goods_id=<?php echo $val['goods_id'];?>">[编辑]</a>
 				<a href="index.php?r=goods/goods_join&goods_id=<?php echo $val['goods_id'];?>" class="del">[删除]</a>
 			</td>
 		</tr>

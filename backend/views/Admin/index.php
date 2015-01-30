@@ -1,8 +1,3 @@
-<?php
-use yii\web\session;
-$session=new Session();
-$sname=$session->get('name');
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
 <head>
@@ -24,7 +19,7 @@ $sname=$session->get('name');
 			<p class="adm">
 				<span>管理员：</span>
 				<span class="adm_pic">&nbsp&nbsp&nbsp&nbsp</span>
-				<span class="adm_people"><?php echo @$sname?></span>
+				<span class="adm_people">[houdunwang]</span>
 			</p>
 			<p class="now_time">
 				今天是：2013.7.13 
@@ -33,7 +28,7 @@ $sname=$session->get('name');
 			</p>
 			<p class="out">
 				<span class="out_bg">&nbsp&nbsp&nbsp&nbsp</span>&nbsp
-				<a href="index.php?r=login/logout" target="_self">退出</a>
+				<a href="" target="_self">退出</a>
 			</p>
 		</div>
 	</div>
@@ -63,9 +58,15 @@ $sname=$session->get('name');
 
 				    <ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=goods/goods_list" class="pos">查看商品</a>    	
+				        	<a href="index.php?r=goods/goods_list" class="pos">商品列表</a>    	
 				        </li> 
 				    </ul> 
+
+					 <ul class="con">
+				        <li class="nav_u">
+				        	<a href="index.php?r=goods/goods_recycle" class="pos">回收站</a>    	
+				        </li> 
+				    </ul>
 					
 				</div>
 			</div>
@@ -75,13 +76,13 @@ $sname=$session->get('name');
 				<div class="text">
 				    <ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=admin/category_add" class="pos">添加分类</a>				        	
+				        	<a href="index.php?r=category/category_add" class="pos">添加分类</a>				        	
 				        </li> 
 				    </ul> 
 
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=admin/category_list" class="pos">分类列表</a>    	
+				        	<a href="index.php?r=category/category_list" class="pos">分类列表</a>    	
 				        </li> 
 				    </ul>
 				</div>
@@ -109,12 +110,12 @@ $sname=$session->get('name');
 				<div class="text">
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=kill/kill_add" class="pos">添加秒杀</a>				        	
+				        	<a href="index.php?r=admin/miaosha_add" class="pos">添加秒杀</a>				        	
 				        </li> 
 				    </ul>
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=kill/kill_list" class="pos">秒杀列表</a>				        	
+				        	<a href="index.php?r=admin/miaosha_list" class="pos">秒杀列表</a>				        	
 				        </li> 
 				    </ul>
 				

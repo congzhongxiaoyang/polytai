@@ -1,13 +1,10 @@
 <?php
-$urls = include(dirname(__FILE__) . '/urlrules.php');
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     require(__DIR__ . '/../../common/config/params-local.php'),
     require(__DIR__ . '/params.php'),
     require(__DIR__ . '/params-local.php')
 );
-
- 
 
 return [
     'id' => 'app-backend',
@@ -32,22 +29,6 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
-
-
-		/*'urlManager'=>array(  
-             'urlFormat' => 'path',  
-             'showScriptName' => false,//隐藏index.php   
-             'urlSuffix' => '.html',//后缀   
-             'rules' => $urls,  
-    
-		),*/
-
-
-
-
-
-
-
     ],
     'params' => $params,
 ];

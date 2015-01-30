@@ -104,36 +104,18 @@
                                 </div>
                                 <div class="bd">
                                   <ul class="hotWrap clearfix">
+								  <?php foreach($data as $k=>$v){?>
                                       <li>
                                           <div class="clearfix">
-                                              <div class="imgWrap"></div>
+                                              <div class="imgWrap"><input type="image" src="<?php echo $v['k_img']?>" width=145 height=145></div>
                                               <div class="pro">
-                                                  <p class="proName">多肽每日保湿霜</p>
-                                                  <p class="price">特价：<span class="redSpan">￥199.00</span></p>
-                                                  <a class="btn" href="javascript:void(0);">立即抢购</a>
+                                                  <p class="proName"><?php echo $v['k_name']?></p>
+                                                  <p class="price">特价：<span class="redSpan">￥<?php echo $v['k_price']?></span></p>
+                                                  <a class="btn" href="index.php?r=kill/kill_detail&id=<?php echo $v['k_id']?>">立即去秒杀</a>
                                               </div>
                                           </div>
                                       </li>
-                                      <li>
-                                          <div class="clearfix">
-                                              <div class="imgWrap"></div>
-                                              <div class="pro">
-                                                  <p class="proName">多肽每日保湿霜</p>
-                                                  <p class="price">特价：<span class="redSpan">￥199.00</span></p>
-                                                  <a class="btn" href="javascript:void(0);">立即抢购</a>
-                                              </div>
-                                          </div>
-                                      </li>
-                                      <li>
-                                          <div class="clearfix">
-                                              <div class="imgWrap"></div>
-                                              <div class="pro">
-                                                  <p class="proName">多肽每日保湿霜</p>
-                                                  <p class="price">特价：<span class="redSpan">￥199.00</span></p>
-                                                  <a class="btn" href="javascript:void(0);">立即抢购</a>
-                                              </div>
-                                          </div>
-                                      </li>
+                                     <?php }?>
                                   </ul>
                                 </div> 
                                 <a href="javascript:void(0);" class="prev" id="idPre"></a>

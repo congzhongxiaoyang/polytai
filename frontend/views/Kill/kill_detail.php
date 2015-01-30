@@ -131,7 +131,10 @@ if ($endtime>=$nowtime){
 $lefttime = $endtime-$nowtime; //实际剩下的时间（秒）
  }else{
 	 $lefttime=0;
-	 die("抢购结束！");
+	 die('<div>
+                                	<a class="buyBtn" href="index.php?r=kill/kill"><span class="carIcon"></span>立即秒杀</a>
+                                </div>
+								');
 }							
 							
  ?>	

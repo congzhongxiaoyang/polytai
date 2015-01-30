@@ -29,6 +29,9 @@ class KillController extends Controller
 		$data=EcsGoodsKill::find()->all();
         return $this->renderPartial('kill_list',['data'=>$data]);
 	}
-
+	public function actionKill(){
+		$data=EcsGoodsKill::find()->all();
+        return $this->renderPartial('kill_list',['data'=>$data]);
+	}
 
 }

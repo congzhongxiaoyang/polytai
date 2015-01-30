@@ -60,6 +60,56 @@ class GoodsController extends Controller
 		]);
 	}
 
+	//后台商品修改
+    public function actionGoods_edit(){
+		$find = new EcsCategory();
+        $categoey = $find::find()->all();
+		$find = new EcsGoods();
+        $result = $find::findOne($_GET['goods_id']);
+        return $this->renderPartial('goods_edit',['categoey'=>$categoey,'info'=>$result]);
+    }
+
+	//后台商品修改处理
+    public function actionGoods_edit_pro(){
+		//var_dump($_POST);
+		$model = new EcsGoods();
+        //$total = $model::find()->max('goods_id');
+		//$goods_sn = "ESC0000".$total;
+		$rootPath = "./resource/uploads/";
+        $upload = move_uploaded_file($_FILES['myfile']['tmp_name'],$rootPath.$_FILES['myfile']['name']);
+		if($upload) {
+			$h_id = $_POST['h_id'];
+			$goods_name =addslashes($_POST['name']);
+			$goods_sn = $_POST['h_sn'];
+			$cat_id = $_POST['cat_id'];
+			$shop_price = addslashes($_POST['price']);
+			$keywords = addslashes($_POST['key']);
+			$goods_desc = addslashes($_POST['editorValue']);
+			$goods_thumb = $rootPath.$_FILES['myfile']['name'];
+			$goods_img = $rootPath.$_FILES['myfile']['name'];
+			$original_img = $rootPath.$_FILES['myfile']['name'];
+			$add_time = time();
+			$excute = $model->updateall([
+					"goods_name" => $goods_name,
+					"goods_sn" => $goods_sn,
+					"cat_id" => $cat_id,
+					"shop_price" => $shop_price,
+					"keywords" => $keywords,
+					"goods_desc" => $goods_desc,
+					"goods_thumb" => $goods_thumb,
+					"goods_img" => $goods_img,
+					"original_img" => $original_img,
+					"add_time" => $add_time
+				],
+				["goods_id"=>$h_id]);
+			if($excute) {
+				$this->redirect("./index.php?r=goods/goods_list");
+			}else {
+				$this->redirect("./index.php?r=goods/goods_list");
+			}
+		}
+	}
+
 	//后台商品加入回收站
     public function actionGoods_join(){
 		$model = new EcsGoods();

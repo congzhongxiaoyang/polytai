@@ -58,9 +58,15 @@
 
 				    <ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=goods/goods_list" class="pos">查看商品</a>    	
+				        	<a href="index.php?r=goods/goods_list" class="pos">商品列表</a>    	
 				        </li> 
 				    </ul> 
+
+					 <ul class="con">
+				        <li class="nav_u">
+				        	<a href="index.php?r=goods/goods_recycle" class="pos">回收站</a>    	
+				        </li> 
+				    </ul>
 					
 				</div>
 			</div>
@@ -70,13 +76,13 @@
 				<div class="text">
 				    <ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=admin/category_add" class="pos">添加分类</a>				        	
+				        	<a href="index.php?r=category/category_add" class="pos">添加分类</a>				        	
 				        </li> 
 				    </ul> 
 
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=admin/category_list" class="pos">分类列表</a>    	
+				        	<a href="index.php?r=category/category_list" class="pos">分类列表</a>    	
 				        </li> 
 				    </ul>
 				</div>
@@ -87,13 +93,13 @@
 				<div class="text">
 				    <ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=order/order_list" class="pos">订单列表</a>				        	
+				        	<a href="index.php?r=admin/order_list" class="pos">订单列表</a>				        	
 				        </li> 
 				    </ul> 
 
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=order/goods_comment" class="pos">评论列表</a>    	
+				        	<a href="index.php?r=admin/goods_comment" class="pos">评论列表</a>    	
 				        </li> 
 				    </ul>
 				</div>
@@ -104,12 +110,12 @@
 				<div class="text">
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=kill/kill_add" class="pos">添加秒杀</a>				        	
+				        	<a href="index.php?r=admin/miaosha_add" class="pos">添加秒杀</a>				        	
 				        </li> 
 				    </ul>
 					<ul class="con">
 				        <li class="nav_u">
-				        	<a href="index.php?r=kill/kill_list" class="pos">秒杀列表</a>				        	
+				        	<a href="index.php?r=admin/miaosha_list" class="pos">秒杀列表</a>				        	
 				        </li> 
 				    </ul>
 				
